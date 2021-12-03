@@ -14,7 +14,7 @@ eksctl create iamserviceaccount --name xray-daemon --namespace ns-fargate --clus
 kubectl label serviceaccount xray-daemon app=xray-daemon --namespace ns-fargate
 
 # Create Role/ConfigMap required for x-ray
-'''
+
 $ cat xray-k8-basics.yaml 
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
@@ -70,5 +70,5 @@ data:
     # Daemon configuration file format version.
     Version: 1
 $
-'''
+
 kubectl  apply  -x xray-k8-basics.yaml 
