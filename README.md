@@ -1,4 +1,25 @@
 ## Create EKS cluster - ekscluster-sbpath
+```
+cat eksworkshop.yaml 
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: ekscluster-sbpath
+  region: us-east-1
+  version: "1.21"
+
+availabilityZones: ["us-east-1a", "us-east-1b", "us-east-1c"]
+
+managedNodeGroups:
+- name: nodegroup
+  desiredCapacity: 3
+  instanceType: t3.small
+  ssh:
+    enableSsm: true
+```
+eksctl create cluster -f eksworkshop.yaml 
 
 ## Create Fargate profile
 eksctl create fargateprofile --cluster ekscluster-sbpath --name ns-fargate --namespace ns-fargate
