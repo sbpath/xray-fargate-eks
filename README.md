@@ -109,6 +109,7 @@ cd eks-workshop/content/intermediate/245_x-ray/sample-front.files
 
 vi main.go
  - remove DaemonAddr:     "xray-service.default:2000",
+ - change namespace from default to ns-fargate (from x-ray-sample-back-k8s.default.svc.cluster.local to x-ray-sample-back-k8s.ns-fargate.svc.cluster.local)
 
 vi build.sh
  - Change REPOSITORY to new path of backend
